@@ -1,7 +1,7 @@
 import React from "react";
 import {Route, Routes} from "react-router";
-import ChatScreen from "../Components/ChatComponent";
 import HomeScreen from "../Components/HomeScreen";
+import ChatScreen from "../Components/Screen";
 
 function Routess(props) {
   return (

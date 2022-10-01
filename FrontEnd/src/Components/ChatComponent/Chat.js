@@ -1,21 +1,19 @@
 import React, {useState, useEffect, useRef} from "react";
-import {io} from "socket.io-client";
 import {to_Decrypt, to_Encrypt} from "../../crypto";
 import "./chat.css";
-const socket = io("http://localhost:8000");
-function Chat({name, roomname}) {
+
+function Chat({name, roomname, socket}) {
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    debugger;
     socket.on("message", (data) => {
       const secret_key = sessionStorage.getItem("secret");
       const decrypt_key = to_Decrypt(secret_key);
       const ans = to_Decrypt(data.text, data.username, decrypt_key);
 
-      console.log(ans);
       let temp = messages;
+
       temp.push({
         userId: data.userId,
         username: data.username,
@@ -63,12 +61,12 @@ function Chat({name, roomname}) {
         </div>
         <div className="chat-message">
           {messages?.map((i) => {
-            if (i.name === name) {
+            if (i.username === name) {
               return (
                 <div
                   className="message mess-left"
                   style={{
-                    backgroundColor: "red",
+                    backgroundColor: i.username === name ? "red" : "blue",
                     marginTop: 2,
                   }}
                 >
@@ -81,7 +79,7 @@ function Chat({name, roomname}) {
                 <div
                   className="message mess-right"
                   style={{
-                    backgroundColor: "blue",
+                    backgroundColor: i.username === name ? "red" : "blue",
                     padding: 10,
                     marginTop: 2,
                   }}

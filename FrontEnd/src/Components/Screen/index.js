@@ -1,8 +1,10 @@
 import React from "react";
 import {useParams} from "react-router-dom";
-import Chat from "./Chat";
-import "./chat.css";
+import {io} from "socket.io-client";
+import Chat from "../ChatComponent/Chat";
+import "../ChatComponent/chat.css";
 
+const socket = io("http://localhost:8000");
 const ChatScreen = (props) => {
   const {name, roomname} = useParams();
 
@@ -17,7 +19,7 @@ const ChatScreen = (props) => {
         display: "flex",
       }}
     >
-      <Chat name={name} roomname={roomname} />
+      <Chat name={name} roomname={roomname} socket={socket} />
     </div>
   );
 };
