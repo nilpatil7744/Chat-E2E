@@ -1,12 +1,10 @@
 import "./App.css";
-import io from "socket.io-client";
-
-const socket = io.connect("/");
+import {Routess} from "./Routes/Routes";
 
 function App() {
   return (
     <div className="App">
-      <h1>HIii</h1>
+      <Routess />
     </div>
   );
 }

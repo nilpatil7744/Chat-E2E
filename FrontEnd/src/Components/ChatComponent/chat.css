@@ -1,0 +1,48 @@
+.chat {
+  width: 400px;
+  height: 600px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.75);
+  overflow-y: auto;
+}
+.message {
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.mess-right {
+  background-color: rgb(71, 122, 123);
+}
+
+.mess-left {
+  background-color: rgb(61, 73, 73);
+}
+
+.inputStyle {
+  width: 300px;
+  padding: 20px;
+
+  background-color: rgba(0, 0, 0, 0.75);
+  color: whitesmoke;
+}
+.inputStyle:focus {
+  outline: none;
+}
+
+.buttonStyle {
+  width: "20%";
+  padding: 20px;
+  color: white;
+  background-color: red;
+}
+
+.send {
+  position: fixed;
+  bottom: 0;
+}
+
+.user-name {
+}
